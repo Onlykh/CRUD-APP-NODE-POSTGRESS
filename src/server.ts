@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import app, { prisma } from "./app";
 
 const port: number = 3000;
@@ -14,6 +13,7 @@ main()
     await prisma.$connect();
   })
   .catch(async (e) => {
+    console.error(e);
     await prisma.$disconnect();
     process.exit(1);
   });
